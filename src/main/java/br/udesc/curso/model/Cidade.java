@@ -12,7 +12,7 @@ import lombok.Data;
 public class Cidade {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue
 	private long id;
 
 	private String nome;
