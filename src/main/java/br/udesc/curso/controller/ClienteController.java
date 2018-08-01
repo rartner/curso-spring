@@ -31,7 +31,7 @@ public class ClienteController {
 		return ResponseEntity.ok(clienteRepository.findAll());
 	}
 	
-	@PostMapping("/salvar")
+	@PostMapping("/")
 	public Cliente save(@RequestBody Cliente cliente) {
 		long cidadeId = cliente.getCidade().getId();
 		cliente.setCidade(cidadeRepository.findById(cidadeId).get());
@@ -39,17 +39,17 @@ public class ClienteController {
 		return clienteRepository.saveAndFlush(cliente);
 	}
 	
-	@GetMapping("/busca/{id}")
-	public Cliente busca(@PathVariable("id") long id) {
+	@GetMapping("/{id}")
+	public Cliente findById(@PathVariable("id") long id) {
 		return clienteRepository.findById(id).get();
 	}
 	
-	@DeleteMapping("/deletar/{id}")
-	public ResponseEntity<Object> deletar(@PathVariable("id") long id) {
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Object> deleteById(@PathVariable("id") long id) {
 		try {
 			clienteRepository.deleteById(id);
 		} catch (Exception e) {
-			return ResponseEntity.ok(e);
+			return ResponseEntity.status(500).body(e);
 		}
 				
 		return ResponseEntity.ok(true);
