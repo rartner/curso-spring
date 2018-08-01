@@ -36,6 +36,6 @@ Connect to database using:
 
 - User: `sa`
 
-- Password: ``
+- Password:
 
 Swagger will run at: `http://localhost:8096/swagger-ui.html`

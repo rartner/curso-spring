@@ -26,8 +26,6 @@ public class Fornecedor {
 	private String nome;
 	
 	@ElementCollection(targetClass=Servico.class)
-	@JoinTable(name="fornecedor_servico",
-				joinColumns=@JoinColumn(name="fornecedorid"))
 	@Column(name="servico", nullable=false)
 	@Enumerated(EnumType.STRING)
 	private Set<Servico> servicos;
