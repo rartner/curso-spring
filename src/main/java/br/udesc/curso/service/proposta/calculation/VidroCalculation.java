@@ -2,8 +2,11 @@ package br.udesc.curso.service.proposta.calculation;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
 import br.udesc.curso.vo.PropostaVO;
 
+@Component
 public class VidroCalculation extends CoberturaCalculation {
 
 	@Override

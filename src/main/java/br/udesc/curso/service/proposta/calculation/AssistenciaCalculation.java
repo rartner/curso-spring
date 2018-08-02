@@ -1,7 +1,10 @@
 package br.udesc.curso.service.proposta.calculation;
 
+import org.springframework.stereotype.Component;
+
 import br.udesc.curso.vo.PropostaVO;
 
+@Component
 public class AssistenciaCalculation extends CoberturaCalculation {
 
 	@Override
