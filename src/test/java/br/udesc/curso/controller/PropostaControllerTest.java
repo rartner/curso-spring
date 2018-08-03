@@ -51,7 +51,7 @@ public class PropostaControllerTest {
 	public void calculaPropostaVO() {
 		double valor = propostaController.propor(proposta);
 		
-		Assert.assertEquals(500.0, valor);
+		Assert.assertEquals(500.0, valor, 0);
 	}
 
 }
