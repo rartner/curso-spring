@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.udesc.curso.enums.Cobertura;
+import br.udesc.curso.model.Apolice;
+import br.udesc.curso.repository.ApoliceRepository;
 import br.udesc.curso.service.proposta.calculation.CoberturaCalculation;
 import br.udesc.curso.vo.PropostaVO;
 
@@ -11,9 +13,12 @@ import br.udesc.curso.vo.PropostaVO;
 public class PropostaService {
 	
 	@Autowired
+	private ApoliceRepository apoliceRepository;
+	
+	@Autowired
 	private CoberturaCalculationFactory coberturaCalculationFactory;
 	
-	public double calcular(PropostaVO proposta) {
+	public Apolice calcular(PropostaVO proposta) {
 		double custo = 0.0;
 		CoberturaCalculation calculation = null;
 		
@@ -22,7 +27,15 @@ public class PropostaService {
 			custo += calculation.calcular(proposta);
 		}
 		
-		return custo;
+		Apolice apolice = new Apolice();
+		apolice.setCliente(proposta.getCliente());
+		apolice.setVeiculo(proposta.getVeiculo());
+		apolice.setCoberturas(proposta.getCoberturas());
+		apolice.setPreco(custo);
+		
+		apoliceRepository.saveAndFlush(apolice);
+		
+		return apolice;
 	}
 
 }

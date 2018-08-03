@@ -49,7 +49,7 @@ public class PropostaControllerTest {
 	
 	@Test
 	public void calculaPropostaVO() {
-		double valor = propostaController.propor(proposta);
+		double valor = propostaController.propor(proposta).getPreco();
 		
 		Assert.assertEquals(500.0, valor, 0);
 	}

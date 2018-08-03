@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.udesc.curso.model.Apolice;
 import br.udesc.curso.service.proposta.PropostaService;
 import br.udesc.curso.vo.PropostaVO;
 
@@ -17,7 +18,7 @@ public class PropostaController {
 	private PropostaService propostaService;
 	
 	@PostMapping("/")
-	public double propor(@RequestBody PropostaVO proposta) {
+	public Apolice propor(@RequestBody PropostaVO proposta) {
 		return propostaService.calcular(proposta);
 	}
 
