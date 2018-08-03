@@ -8,4 +8,6 @@ import br.udesc.curso.model.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 
+	public Cliente findByCpf(String cpf);
+	
 }
