@@ -15,10 +15,16 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import br.udesc.curso.enums.EstadoCivil;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Cliente {
 
 	@Id
